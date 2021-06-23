@@ -25,20 +25,16 @@ const initialDramaValues = { hitpoints: 100, attack: 2, defense: 1, intelligence
 const initialCheerleaderValues = { hitpoints: 100, attack: 8, defense: 4, intelligence: 5 }
 
 const userCharacter = storeState()
+const currentState = userCharacter()
 // const jock = storeState(initialJockValues)
 // const nerd = storeState(initialNerdValues)
 // const goth = storeState(initialGothValues)
 // const drama = storeState(initialDramaValues)
 // const cheerleader = storeState(initialCheerleaderValues)
 
-
 const takeDamage = changeState("hitpoints")
-const superDamage = takeDamage(-30)
-const moderateDamage = takeDamage(-20)
 const lowDamage = takeDamage(-10)
 const lightPotion = takeDamage(10)
-const medPotion = takeDamage(20)
-const strongPotion = takeDamage(30)
 
 const strength = changeState("attack")
 const stronger = strength(5)
@@ -49,30 +45,68 @@ const superDefense = shield(5)
 const weakenDefense = shield(-5)
 
 const knowledge = changeState("intelligence")
-const Smarter = knowledge(5)
+const smarter = knowledge(5)
 const dumber = knowledge(-5)
 
 // const minimalDamage = takeDamage(Attacker.Attack - Victims.Defence)
 
-function rollDice() {
-  return Math.random() * 6;
+const rollDice = () => {
+  Math.random() * 6;
 }
-doAction(randomNum){
-  if { randomNum === 1) {
+
+const getStrong = (obj) => {
+  const newCharacter = [obj](stronger)
+  updateStats(newCharacter)
+}
+const getWeak = (obj) => {
+  const newCharacter = [obj](weaker)
+  updateStats(newCharacter)
+}
+const getSmart = (obj) => {
+  const newCharacter = [obj](smarter)
+  updateStats(newCharacter)
+}
+const getStupid = (obj) => {
+  const newCharacter = [obj](dumber)
+  updateStats(newCharacter)
+}
+const getLife = (obj) => {
+  const newCharacter = [obj](lightPotion)
+  updateStats(newCharacter)
+}
+const lessLife = (obj) => {
+  const newCharacter = [obj](lowDamage)
+  updateStats(newCharacter)
+}
+const moreDefense = (obj) => {
+  const newCharacter = [obj](superDefense)
+  updateStats(newCharacter)
+}
+const lessDefense = (obj) => {
+  const newCharacter = [obj](weakenDefense)
+  updateStats(newCharacter)
+}
+
+const updateStats = (obj) => {
+  `Name: ${obj.name} Attack: ${obj.attack} Defense: ${obj.defense} Intelligence: ${obj.intelligence}`;
+}
+
+const doAction = (randomNum) => {
+  if (randomNum === 1) {
     getStrong()
+  } else if (randomNum === 2) {
+    getWeak()
+  } else if (randomNum === 3) {
+    getSmart()
+  } else if (randomNum === 4) {
+    getStupid()
+  } else if (randomNum === 5) {
+    getLife()
+  } else if (randomNum === 6) {
+    lessLife()
+  } else if (randomNum === 7) {
+    moreDefense()
+  } else if (randomNum === 8) {
+    lessDefense()
   }
-}
-const currentState = userCharacter()
-
-function getStrong() {
-  const newCharacter = userCharacter(stronger)
-  return `Attack: ${newCharacter.attack} `
-}
-
-function updateStats() {
-  Return`Name: ${newCharacter.name}`;
-  $('#hitpoint-value').text(`Hitpoints: ${newCharacter.hitpoints}`);
-  $('#attack-value').text(`Attack: ${newCharacter.attack}`);
-  $('#defense-value').text(`Defense: ${newCharacter.defense}`);
-  $('#intelligence-value').text(`Intelligence: ${newCharacter.intelligence}`);
 }

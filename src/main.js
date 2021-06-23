@@ -17,14 +17,12 @@ $(document).ready(function () {
   $('#rollDice').click(function () {
     doAction(rollDice());
     updateStats();
-  })
-
-  doAction(randomNum){
-    if { randomNum === 1) { }
-  }
-
-
+  });
 })
+
+
+
+
 
 
 
