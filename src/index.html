@@ -9,7 +9,33 @@
 </head>
 
 <body>
+  <form action="create">
+    <label for="name">Character Name:</label>
+    <input type="text" id="name">
 
+    <label for="character">Character</label>
+    <select class="form-control" name="character" id="character" required>
+      <option disabled selected>Choose Your Character</option>
+      <option value="jock">Jock</option>
+      <option value="nerd">Nerd</option>
+      <option value="goth">Goth</option>
+      <option value="drama">Drama</option>
+      <option value="cheerleader">Chearleader</option>
+      <select>
+        <button class="btn-primary submit">Create</button>
+  </form>
+  <div class="display">
+    <div id="attack-value">
+
+    </div>
+    <div id="hitpoint-value">
+
+    </div>
+
+  </div>
+  <div class="actions">
+    <button class="btn btn-primary" id="rollDice">Roll Dice</button>
+  </div>
 </body>
 
 </html>

@@ -1,4 +1,4 @@
-export { storeState, changeState }
+// export { storeState, changeState }
 
 const storeState = (initialState = {}) => {
   let currentState = initialState;
@@ -24,11 +24,12 @@ const initialGothValues = { hitpoints: 100, attack: 1, defense: 8, intelligence:
 const initialDramaValues = { hitpoints: 100, attack: 2, defense: 1, intelligence: 7 }
 const initialCheerleaderValues = { hitpoints: 100, attack: 8, defense: 4, intelligence: 5 }
 
-const jock = storeState(initialJockValues)
-const nerd = storeState(initialNerdValues)
-const goth = storeState(initialGothValues)
-const drama = storeState(initialDramaValues)
-const cheerleader = storeState(initialCheerleaderValues)
+const userCharacter = storeState()
+// const jock = storeState(initialJockValues)
+// const nerd = storeState(initialNerdValues)
+// const goth = storeState(initialGothValues)
+// const drama = storeState(initialDramaValues)
+// const cheerleader = storeState(initialCheerleaderValues)
 
 
 const takeDamage = changeState("hitpoints")
@@ -53,3 +54,25 @@ const dumber = knowledge(-5)
 
 // const minimalDamage = takeDamage(Attacker.Attack - Victims.Defence)
 
+function rollDice() {
+  return Math.random() * 6;
+}
+doAction(randomNum){
+  if { randomNum === 1) {
+    getStrong()
+  }
+}
+const currentState = userCharacter()
+
+function getStrong() {
+  const newCharacter = userCharacter(stronger)
+  return `Attack: ${newCharacter.attack} `
+}
+
+function updateStats() {
+  Return`Name: ${newCharacter.name}`;
+  $('#hitpoint-value').text(`Hitpoints: ${newCharacter.hitpoints}`);
+  $('#attack-value').text(`Attack: ${newCharacter.attack}`);
+  $('#defense-value').text(`Defense: ${newCharacter.defense}`);
+  $('#intelligence-value').text(`Intelligence: ${newCharacter.intelligence}`);
+}
