@@ -1,3 +1,5 @@
+export { storeState, changeState }
+
 const storeState = (initialState = {}) => {
   let currentState = initialState;
   return (stateChangeFunction = state => state) => {
@@ -15,8 +17,6 @@ const changeState = (prop) => {
     })
   }
 }
-
-
 
 const initialJockValues = { hitpoints: 100, attack: 10, defense: 5, intelligence: 1 }
 const initialNerdValues = { hitpoints: 100, attack: 3, defense: 6, intelligence: 10 }
